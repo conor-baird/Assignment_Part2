@@ -7,12 +7,14 @@ import fullAssignment.Model.Roads;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MainFrame extends JPanel {
     private Roads[] buttons;
     public int time = 0;
     public boolean state;
+
 
     public MainFrame() {
         setPreferredSize(new Dimension(300, 300));
@@ -38,14 +40,13 @@ public class MainFrame extends JPanel {
         invalidate();
     }
 
-    public void time(boolean state){
-        while(state==true) {
-            time = time + 1;
+    public void time(){
+        time += 1;
+        System.out.println(time);
 
 
-        }
+
     }
-
 
 
 

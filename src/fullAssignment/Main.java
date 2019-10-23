@@ -6,8 +6,10 @@ import fullAssignment.View.MainFrame;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Main {
+
 
 
     public static void main(String[] args){
@@ -16,12 +18,10 @@ public class Main {
         frame.setJMenuBar(menuBar);
         JMenu file = new JMenu("File");
         JMenu operation = new JMenu("Operation");
-        JMenuItem start = new JMenuItem("Start");
-        JMenuItem stop = new JMenuItem("Stop");
+        JButton start = new JButton("Start");
+        JButton stop = new JButton("Stop");
         JMenuItem Load = new JMenuItem("Load");
         JMenuItem Save = new JMenuItem("Save");
-        operation.add(start);
-        operation.add(stop);
         file.add(Load);
         file.add(Save);
         menuBar.add(file);
@@ -45,23 +45,15 @@ public class Main {
 
         });
 
-        start.addActionListener(event -> {
-            boolean state = true;
-            mainFrame.time(state);
-            System.out.println(mainFrame.time);
+        start.addActionListener(event ->{
+            mainFrame.time();
 
         });
-
         stop.addActionListener(event ->{
-            boolean state = false;
-            mainFrame.time(state);
+            mainFrame.state = false;
         });
-
-
-
-
-
-
 
     }
+
+
 }
