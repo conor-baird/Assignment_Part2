@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 public class MainFrame extends JPanel {
     private Roads[] buttons;
     public int time = 0;
+    public boolean state;
 
     public MainFrame() {
         setPreferredSize(new Dimension(300, 300));
@@ -35,6 +36,14 @@ public class MainFrame extends JPanel {
         buttons[position].setBackground(Color.RED);
 
         invalidate();
+    }
+
+    public void time(boolean state){
+        while(state==true) {
+            time = time + 1;
+
+
+        }
     }
 
 

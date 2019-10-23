@@ -8,8 +8,6 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 
 public class Main {
-    private static boolean state = true;
-
 
 
     public static void main(String[] args){
@@ -48,17 +46,15 @@ public class Main {
         });
 
         start.addActionListener(event -> {
-            while(state==true) {
-                mainFrame.time = mainFrame.time + 1;
-                System.out.println(mainFrame.time);
-
-            }
-
+            boolean state = true;
+            mainFrame.time(state);
+            System.out.println(mainFrame.time);
 
         });
 
         stop.addActionListener(event ->{
-            state = false;
+            boolean state = false;
+            mainFrame.time(state);
         });
 
 
