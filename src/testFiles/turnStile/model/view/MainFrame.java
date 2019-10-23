@@ -55,8 +55,8 @@ public class MainFrame extends JFrame {
     private void setupTurnstileIcon() {
         icons = new ImageIcon[2];
 
-        icons[CLOSED] = new ImageIcon("resources/turnstile_closed.png");
-        icons[OPEN] = new ImageIcon("resources/turnstile_open.png");
+        icons[CLOSED] = new ImageIcon("reasources/turnstile_closed.png");
+        icons[OPEN] = new ImageIcon("reasources/turnstile_open.png");
 
         imageLabel = new JLabel(icons[CLOSED]);
         add(imageLabel, BorderLayout.CENTER);
