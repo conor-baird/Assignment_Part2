@@ -1,5 +1,7 @@
 package testFiles.Bouncer;
 
+import testFiles.Bouncer.model.Rectangle;
+import testFiles.Bouncer.model.Shape;
 import view.Display;
 
 import javax.swing.*;
@@ -16,14 +18,14 @@ public class Main {
         final int SHAPE_COUNT = 100;
 
         // setup model objects
-        model.Shape[] shapes = new model.Shape[SHAPE_COUNT];
+        Shape[] shapes = new Shape[SHAPE_COUNT];
         for (int i = 0; i < shapes.length; ++i) {
             int x = random.nextInt(DISPLAY_WIDTH);
             int y = random.nextInt(DISPLAY_HEIGHT);
             int width = randomSize(10, 50);
             int height = randomSize(20, 40);
             Color color = randomColor();
-            shapes[i] = new model.Rectangle(x, y, width, height, color);
+            shapes[i] = new Rectangle(x, y, width, height, color);
         }
 
         // setup view objects

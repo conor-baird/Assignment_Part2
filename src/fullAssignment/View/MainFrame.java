@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 
 public class MainFrame extends JPanel {
     private Roads[] buttons;
+    public int time = 0;
 
     public MainFrame() {
         setPreferredSize(new Dimension(300, 300));

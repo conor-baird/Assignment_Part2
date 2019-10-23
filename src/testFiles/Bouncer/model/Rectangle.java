@@ -1,4 +1,4 @@
-package model;
+package testFiles.Bouncer.model;
 
 import java.awt.*;
 

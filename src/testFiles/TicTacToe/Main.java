@@ -1,8 +1,8 @@
 package testFiles.TicTacToe;
 
 import model.TicTacToe;
-import view.Board;
-import view.NumberedButton;
+import testFiles.TicTacToe.view.Board;
+import testFiles.TicTacToe.view.NumberedButton;
 
 import javax.swing.*;
 

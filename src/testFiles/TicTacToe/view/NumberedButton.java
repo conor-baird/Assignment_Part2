@@ -1,4 +1,4 @@
-package view;
+package testFiles.TicTacToe.view;
 
 import javax.swing.*;
 
