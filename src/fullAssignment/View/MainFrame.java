@@ -18,8 +18,8 @@ public class MainFrame extends JPanel {
 
     public MainFrame() {
         setPreferredSize(new Dimension(300, 300));
-        setLayout(new GridLayout(24, 24));
-        buttons = new Roads[576];
+        setLayout(new GridLayout(4, 4));
+        buttons = new Roads[16];
         Font font = new Font("Arial", Font.BOLD, 24);
         for (int i = 0; i < buttons.length; ++i) {
             buttons[i] = new Roads();

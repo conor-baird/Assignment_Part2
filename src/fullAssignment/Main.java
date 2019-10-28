@@ -1,5 +1,6 @@
 package fullAssignment;
 
+import fullAssignment.Model.Cars;
 import fullAssignment.Model.Roads;
 import fullAssignment.View.MainFrame;
 
@@ -11,12 +12,12 @@ import java.awt.event.ActionListener;
 public class Main {
 
 
-
     public static void main(String[] args){
         JFrame frame = new JFrame("Traffic Simulator");
         JMenuBar menuBar = new JMenuBar();
         frame.setJMenuBar(menuBar);
         JMenu file = new JMenu("File");
+        Cars cars = new Cars();
         JMenu operation = new JMenu("Operation");
         JButton start = new JButton("Start");
         JButton stop = new JButton("Stop");
@@ -42,18 +43,25 @@ public class Main {
             Roads road = (Roads) event.getSource();
             int position = road.getNumber();
             mainFrame.update(position);
+            cars.carRoads(position);
+
 
         });
 
         start.addActionListener(event ->{
             mainFrame.time();
+            cars.carMovement();
 
         });
         stop.addActionListener(event ->{
+            cars.displayRoads();
+            cars.setOriginalPos();
             mainFrame.state = false;
         });
 
     }
+
+
 
 
 }

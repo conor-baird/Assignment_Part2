@@ -1,59 +1,43 @@
 package fullAssignment.Model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Cars {
-    int carLength;
-    int carStartPosition;
-    int carEndPosition;
+    int carPosition;
+    List<Integer> roads = new ArrayList<Integer>();
 
-    public int getCarLength() {
-        return carLength;
-    }
-
-    public int getCarEndPosition() {
-        return carEndPosition;
-    }
-    public int getCarStartPosition() {
-        return carStartPosition;
+    public void carRoads(int road){
+        roads.add(road);
     }
 
-    public void setCarLength(int carLength) {
-        this.carLength = carLength;
-    }
-
-    public void setCarEndPosition(int carEndPosition) {
-        this.carEndPosition = carEndPosition;
-    }
-    // This method sets the start position of the car depending on it length because if it has length of 1 its
-    // start position needs to be in the 0 segements otherwise the start position can be equal to its length.
-    public void setCarStartPosition(int carStartPosition) {
-        if (carLength<=1){
-            this.carStartPosition = 0;
+    public int carRoadsLookUp(int lookUp) {
+        int outPut = 0;
+        for (int i = 0; i < roads.size(); i++) {
+            if (roads.get(i) == lookUp) {
+                outPut = lookUp;
+                System.out.println(outPut);
+            }
         }
-        else {
-            this.carStartPosition = carStartPosition;
+        return outPut;
+    }
+
+    public void setOriginalPos(){
+        carPosition = roads.get(0);
+    }
+
+    public void carMovement(){
+        if((carPosition+1)==carRoadsLookUp(carPosition+1)){
+            carPosition = carPosition +1;
         }
     }
 
-    public void moveCar(){
-        carStartPosition += 1;
-        carEndPosition += 1;
-    }
-    //This method sets the car positions at the start of new road depending on if it length is greater than 1
-    public void setCarToOriginalPos(){
-        if (carLength<=1){
-            carStartPosition = 0;
-            carEndPosition =0 ;
-        }
-        else {
-            carStartPosition = carLength;
-            carEndPosition = 0;
-        }
-    }
 
-    public Cars(int carLength){
-        setCarLength(carLength);
-        setCarEndPosition(0);
-        setCarStartPosition(carLength);
+    public void displayRoads(){
+        System.out.println(roads);
+    }
+    public Cars(){
+
     }
 
 }
