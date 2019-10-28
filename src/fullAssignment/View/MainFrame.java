@@ -42,10 +42,6 @@ public class MainFrame extends JPanel {
 
     public void time(){
         time += 1;
-        System.out.println(time);
-
-
-
     }
 
 
