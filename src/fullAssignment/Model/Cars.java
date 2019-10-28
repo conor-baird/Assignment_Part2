@@ -3,7 +3,6 @@ package fullAssignment.Model;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.stream.IntStream;
 
 public class Cars {
     int carPosition;
@@ -58,7 +57,7 @@ public class Cars {
         }
     }
 
-    public void carMovement(){
+    public int carMovement(){
         if ((carPosition+1)==carRoadsLookUp(carPosition+1)){
             twoIntersection(4,1);
             twoIntersection(-4,1);
@@ -71,6 +70,7 @@ public class Cars {
             threeIntersection(4,-4,-1);
         }*/
         System.out.println(carPosition);
+        return carPosition;
     }
 
     public void displayRoads(){

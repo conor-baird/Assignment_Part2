@@ -42,7 +42,7 @@ public class Main {
         mainFrame.setButtonListener(event -> {
             Roads road = (Roads) event.getSource();
             int position = road.getNumber();
-            mainFrame.update(position);
+            mainFrame.updateRoad(position);
             cars.carRoads(position);
 
 
@@ -50,7 +50,8 @@ public class Main {
 
         start.addActionListener(event ->{
             mainFrame.time();
-            cars.carMovement();
+            mainFrame.updateCar(cars.carMovement());
+
 
         });
         stop.addActionListener(event ->{
