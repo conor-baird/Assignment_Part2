@@ -37,6 +37,7 @@ public class Main {
         menuBar.add(stop);
 
         MainFrame mainFrame = new MainFrame();
+        TrafficLight trafficLight = new TrafficLight();
         frame.add(mainFrame);
         frame.pack();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -52,7 +53,13 @@ public class Main {
 
         start.addActionListener(event ->{
             mainFrame.time();
-            mainFrame.updateCar(cars.carMovement());
+            if (trafficLight.operatorLight()=="Green") {
+                System.out.println("Shit going");
+                mainFrame.updateCar(cars.carMovement());
+            }
+            else{
+                System.out.println("Shit Stopped");
+            }
         });
 
         stop.addActionListener(event ->{
