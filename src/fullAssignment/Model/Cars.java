@@ -10,6 +10,10 @@ public class Cars {
     List<Integer> roads = new ArrayList<Integer>();
     List<Integer> roadsDriven = new ArrayList<Integer>();
 
+    public List<Integer> roadsOutput(){
+        return roads;
+    }
+
 
     public void carRoads(int road){
         roads.add(road);
@@ -95,8 +99,6 @@ public class Cars {
             carPosition = carPosition +1;
             roadsDriven.add(carPosition);
         }
-
-
         System.out.println(carPosition);
         System.out.println(roadsDriven);
         return carPosition;

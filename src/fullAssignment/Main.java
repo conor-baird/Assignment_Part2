@@ -8,8 +8,17 @@ import fullAssignment.View.MainFrame;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 public class Main {
+
     public static void main(String[] args){
         JFrame frame = new JFrame("Traffic Simulator");
         JMenuBar menuBar = new JMenuBar();
@@ -52,6 +61,33 @@ public class Main {
             mainFrame.state = false;
         });
 
+        /*Load.addActionListener(event -> {
+            try {
+                String text = Files.readString(Paths.get("road.csv"));
+                Scanner sc = new Scanner(text);
+                while (sc.hasNextLine()) {
+                    System.out.println(Integer.parseInt(sc.nextLine()));
+                    mainFrame.updateRoad(Integer.parseInt(sc.nextLine()));
+                    cars.carRoads(Integer.parseInt(sc.nextLine()));
+                }
+
+        } catch (IOException e) {
+                JOptionPane.showMessageDialog(frame, e.getLocalizedMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        });*/
+
+        Save.addActionListener(event -> {
+            try {
+                PrintWriter writer = new PrintWriter(new FileWriter("road.csv"));
+                for (int i = 0; i < cars.roadsOutput().size(); ++i){
+                    writer.println(cars.roadsOutput().get(i));
+                }
+                writer.close();
+
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(frame, e.getLocalizedMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        });
     }
 
 
