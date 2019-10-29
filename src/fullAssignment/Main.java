@@ -49,17 +49,18 @@ public class Main {
         start.addActionListener(event ->{
             mainFrame.removeAllButtons();
             if (trafficLight.operatorLight().equals("Green")) {
-                System.out.println("Shit going");
+                //System.out.println("Shit going");
                 mainFrame.updateCar(cars.carMovement());
             }
             else{
-                System.out.println("Shit Stopped");
+                //System.out.println("Shit Stopped");
             }
         });
 
         initialise.addActionListener(event ->{
             cars.displayRoads();
             cars.setOriginalPos();
+            mainFrame.updateCar((cars.setOriginalPos()));
         });
 
 
