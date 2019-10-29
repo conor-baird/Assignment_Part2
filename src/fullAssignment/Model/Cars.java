@@ -67,21 +67,22 @@ public class Cars {
     }
 
     public int carMovement(){
-        if ((carPosition+1)==carRoadsLookUp(carPosition+1)&&(carPosition+4)==carRoadsLookUp(carPosition+4)&&(carPosition-4)!=carRoadsLookUp(carPosition-4)){
+        if ((carPosition+1)==carRoadsLookUp(carPosition+1)&&(carPosition+4)==carRoadsLookUp(carPosition+4)&&(carPosition-4)==carRoadsLookUp(carPosition-4)) {
+            System.out.println("Three Road Intersection");
+            threeIntersection(4, -4, 1);
+            roadsDriven.add(carPosition);
+        }
+        else if ((carPosition+1)==carRoadsLookUp(carPosition+1)&&(carPosition+4)==carRoadsLookUp(carPosition+4)){
             System.out.println("Two Road Intersection");
             twoIntersection(4,1);
             roadsDriven.add(carPosition);
         }
-        else if ((carPosition+1)==carRoadsLookUp(carPosition+1)&&(carPosition-4)==carRoadsLookUp(carPosition-4)&&(carPosition+4)!=carRoadsLookUp(carPosition+4)){
+        else if ((carPosition+1)==carRoadsLookUp(carPosition+1)&&(carPosition-4)==carRoadsLookUp(carPosition-4)){
             System.out.println("Two Road Intersection");
             twoIntersection(-4,1);
             roadsDriven.add(carPosition);
         }
-        else if ((carPosition+1)==carRoadsLookUp(carPosition+1)&&(carPosition+4)==carRoadsLookUp(carPosition+4)&&(carPosition-4)==carRoadsLookUp(carPosition-4)){
-            System.out.println("Three Road Intersection");
-            threeIntersection(4,-4,1);
-            roadsDriven.add(carPosition);
-        }
+
         else if((carPosition+4)==carRoadsLookUp(carPosition+4)&&(carPosition+4)!=cardDrivenRoadsLookUp(carPosition+4)){
             carPosition = carPosition + 4;
             roadsDriven.add(carPosition);
