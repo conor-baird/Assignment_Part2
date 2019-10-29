@@ -37,8 +37,8 @@ public class MainFrame extends JPanel {
     }
 
     public void updateRoad(int position) {
-        buttons[position].setBackground(Color.RED);
-        invalidate();
+        buttons[position].setVisible(false);
+
     }
 
     public void updateCar(int position){
@@ -54,7 +54,7 @@ public class MainFrame extends JPanel {
 
     public void paint(Graphics g) {
         g.setColor(Color.BLACK);
-        g.fillRect(buttonX,buttonY,75,37);
+        g.fillRect(buttonX,buttonY,37,37);
     }
 
 

@@ -64,6 +64,9 @@ public class Cars {
             threeIntersection(4,-4,1);
             twoIntersection(1,1);
         }
+        if((carPosition+4)==carRoadsLookUp(carPosition+4)){
+            twoIntersection(4,4);
+        }
         /*if ((carPosition-1)==carRoadsLookUp(carPosition-1)){
             twoIntersection(4,-1);
             twoIntersection(-4,-1);
