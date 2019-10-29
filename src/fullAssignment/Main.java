@@ -52,7 +52,7 @@ public class Main {
         });
 
         start.addActionListener(event ->{
-            mainFrame.time();
+            mainFrame.timerMethod(true);
             if (trafficLight.operatorLight()=="Green") {
                 System.out.println("Shit going");
                 mainFrame.updateCar(cars.carMovement());

@@ -13,12 +13,10 @@ import java.awt.event.ActionListener;
 public class MainFrame extends JPanel {
     int carButtonX;
     int carButtonY;
-    int buttonX;
-    int buttonY;
+    public int time;
     int roadButtonX;
     int roadButtonY;
     private Roads[] buttons;
-    public int time = 0;
     public boolean state;
 
 
@@ -65,11 +63,14 @@ public class MainFrame extends JPanel {
         g.fillRect(roadButtonX,roadButtonY,75,75);
     }
 
-
-
-    public void time(){
-        time += 1;
+    public void timerMethod(boolean test){
+        while (test==true){
+            time +=1;
+            System.out.println(time);
+        }
     }
+
+
 
 
 
