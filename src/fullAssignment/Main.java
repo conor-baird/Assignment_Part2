@@ -46,7 +46,7 @@ public class Main {
         });
 
         start.addActionListener(event ->{
-            //mainFrame.timerMethod(true);
+            mainFrame.removeAllButtons();
             if (trafficLight.operatorLight()=="Green") {
                 System.out.println("Shit going");
                 mainFrame.updateCar(cars.carMovement());

@@ -51,6 +51,12 @@ public class MainFrame extends JPanel {
         repaint();
     }
 
+    public void removeAllButtons(){
+        for (int i = 0; i < buttons.length; ++i) {
+            buttons[i].setVisible(false);
+        }
+    }
+
 
 
 
