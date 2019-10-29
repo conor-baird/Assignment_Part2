@@ -6,7 +6,6 @@ import java.util.Random;
 
 public class Cars {
     int carPosition;
-    String directionArray[] = {"UP","DOWN","STRAIGHT"};
     List<Integer> roads = new ArrayList<Integer>();
     List<Integer> roadsDriven = new ArrayList<Integer>();
 
@@ -15,7 +14,7 @@ public class Cars {
     }
 
 
-    public void carRoads(int road){
+    public void roadsChosen(int road){
         roads.add(road);
     }
 

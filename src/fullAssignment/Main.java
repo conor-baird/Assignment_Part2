@@ -2,20 +2,14 @@ package fullAssignment;
 
 import fullAssignment.Model.Cars;
 import fullAssignment.Model.Roads;
+import fullAssignment.Model.TrafficLight;
 import fullAssignment.View.MainFrame;
 
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 
 public class Main {
 
@@ -48,11 +42,11 @@ public class Main {
             Roads road = (Roads) event.getSource();
             int position = road.getNumber();
             mainFrame.updateRoad(position);
-            cars.carRoads(position);
+            cars.roadsChosen(position);
         });
 
         start.addActionListener(event ->{
-            mainFrame.timerMethod(true);
+            //mainFrame.timerMethod(true);
             if (trafficLight.operatorLight()=="Green") {
                 System.out.println("Shit going");
                 mainFrame.updateCar(cars.carMovement());
