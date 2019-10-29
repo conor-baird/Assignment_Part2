@@ -19,9 +19,9 @@ public class Main {
         frame.setJMenuBar(menuBar);
         JMenu file = new JMenu("File");
         Cars cars = new Cars();
-        JMenu operation = new JMenu("Operation");
         JButton start = new JButton("Start");
         JButton stop = new JButton("Stop");
+        JButton initialise = new JButton("Initialise");
         JMenuItem Load = new JMenuItem("Load");
         JMenuItem Save = new JMenuItem("Save");
         file.add(Load);
@@ -29,6 +29,7 @@ public class Main {
         menuBar.add(file);
         menuBar.add(start);
         menuBar.add(stop);
+        menuBar.add(initialise);
 
         MainFrame mainFrame = new MainFrame();
         TrafficLight trafficLight = new TrafficLight();
@@ -47,7 +48,7 @@ public class Main {
 
         start.addActionListener(event ->{
             mainFrame.removeAllButtons();
-            if (trafficLight.operatorLight()=="Green") {
+            if (trafficLight.operatorLight().equals("Green")) {
                 System.out.println("Shit going");
                 mainFrame.updateCar(cars.carMovement());
             }
@@ -56,9 +57,13 @@ public class Main {
             }
         });
 
-        stop.addActionListener(event ->{
+        initialise.addActionListener(event ->{
             cars.displayRoads();
             cars.setOriginalPos();
+        });
+
+
+        stop.addActionListener(event ->{
             mainFrame.state = false;
         });
 
