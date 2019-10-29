@@ -47,6 +47,7 @@ public class Main {
         });
 
         start.addActionListener(event ->{
+
             mainFrame.removeAllButtons();
             if (trafficLight.operatorLight().equals("Green")) {
                 //System.out.println("Shit going");

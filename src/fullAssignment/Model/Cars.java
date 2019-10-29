@@ -8,7 +8,7 @@ public class Cars {
     int carPosition;
     List<Integer> roads = new ArrayList<Integer>();
     List<Integer> roadsDriven = new ArrayList<Integer>();
-    boolean state=true;
+    private boolean state=true;
 
     public List<Integer> roadsOutput(){
         return roads;
@@ -19,21 +19,23 @@ public class Cars {
         roads.add(road);
     }
 
-    public int carRoadsLookUp(int lookUp) {
+    private int carRoadsLookUp(int lookUp) {
         int outPut = 25000;
-        for (int i = 0; i < roads.size(); i++) {
-            if (roads.get(i) == lookUp) {
+        for (Integer road : roads) {
+            if (road == lookUp) {
                 outPut = lookUp;
+                break;
             }
         }
         return outPut;
     }
 
-    public int carDrivenRoadsLookUp(int lookUp) {
+    private int carDrivenRoadsLookUp(int lookUp) {
         int outPut = 25000;
-        for (int i = 0; i < roadsDriven.size(); i++) {
-            if (roadsDriven.get(i) == lookUp) {
+        for (Integer integer : roadsDriven) {
+            if (integer == lookUp) {
                 outPut = lookUp;
+                break;
             }
         }
         return outPut;
@@ -44,22 +46,11 @@ public class Cars {
         return carPosition;
     }
 
-    public void twoIntersection(int direction,int direction2){
-        Random random = new Random();
-        Integer ints = random.nextInt(2);
 
-            if (ints== 1) {
-                carPosition = carPosition + direction2;
-            }
-            if (ints ==2){
-                carPosition = carPosition + direction;
-            }
-
-    }
-    public void threeIntersection(int direction1, int direction2,int direction3){
-        while(state==true) {
+    private void multiRoadIntersection(int direction1, int direction2, int direction3){
+        while(state) {
             Random random = new Random();
-            Integer ints = random.nextInt(3);
+            int ints = random.nextInt(3);
             if ((carPosition + direction1) != carDrivenRoadsLookUp(carPosition + direction1)) {
                 if (ints == 1) {
                     carPosition = carPosition + direction3;
@@ -85,22 +76,22 @@ public class Cars {
     public int carMovement(){
          if ((carPosition+1)==carRoadsLookUp(carPosition+1)&&(carPosition+4)==carRoadsLookUp(carPosition+4)&&(carPosition-4)==carRoadsLookUp(carPosition-4)) {
             System.out.println("Three Road Intersection");
-            threeIntersection(4, -4, 1);
+            multiRoadIntersection(4, -4, 1);
             roadsDriven.add(carPosition);
         }
         else if ((carPosition-1)==carRoadsLookUp(carPosition-1)&&(carPosition-4)==carRoadsLookUp(carPosition-4)&&(carPosition+1)==carRoadsLookUp(carPosition+1)) {
             System.out.println("Three Road Intersection");
-            threeIntersection(-1, -4, 1);
+            multiRoadIntersection(-1, -4, 1);
             roadsDriven.add(carPosition);
         }
         else if ((carPosition-1)==carRoadsLookUp(carPosition-1)&&(carPosition+4)==carRoadsLookUp(carPosition+4)&&(carPosition-4)==carRoadsLookUp(carPosition-4)) {
             System.out.println("Three Road Intersection");
-            threeIntersection(-1, 4, -4);
+            multiRoadIntersection(-1, 4, -4);
             roadsDriven.add(carPosition);
         }
         else if ((carPosition+1)==carRoadsLookUp(carPosition+1)&&(carPosition+4)==carRoadsLookUp(carPosition+4)&&(carPosition-1)==carRoadsLookUp(carPosition-1)) {
             System.out.println("Three Road Intersection");
-            threeIntersection(1, 4, -1);
+            multiRoadIntersection(1, 4, -1);
             roadsDriven.add(carPosition);
         }
         else if((carPosition+4)==carRoadsLookUp(carPosition+4)&&(carPosition+4)!=carDrivenRoadsLookUp(carPosition+4)){
