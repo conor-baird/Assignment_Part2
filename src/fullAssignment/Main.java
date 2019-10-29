@@ -10,8 +10,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Main {
-
-
     public static void main(String[] args){
         JFrame frame = new JFrame("Traffic Simulator");
         JMenuBar menuBar = new JMenuBar();
@@ -29,9 +27,6 @@ public class Main {
         menuBar.add(start);
         menuBar.add(stop);
 
-
-
-
         MainFrame mainFrame = new MainFrame();
         frame.add(mainFrame);
         frame.pack();
@@ -44,17 +39,13 @@ public class Main {
             int position = road.getNumber();
             mainFrame.updateRoad(position);
             cars.carRoads(position);
-
-
         });
 
         start.addActionListener(event ->{
             mainFrame.time();
             mainFrame.updateCar(cars.carMovement());
-
-
-
         });
+
         stop.addActionListener(event ->{
             cars.displayRoads();
             cars.setOriginalPos();

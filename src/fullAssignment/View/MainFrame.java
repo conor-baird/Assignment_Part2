@@ -11,8 +11,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MainFrame extends JPanel {
+    int carButtonX;
+    int carButtonY;
     int buttonX;
     int buttonY;
+    int roadButtonX;
+    int roadButtonY;
     private Roads[] buttons;
     public int time = 0;
     public boolean state;
@@ -36,26 +40,31 @@ public class MainFrame extends JPanel {
         }
     }
 
+    public void updateCar(int position){
+        carButtonX = buttons[position].getX();
+        carButtonY = buttons[position].getY();
+        repaint();
+    }
+
     public void updateRoad(int position) {
         buttons[position].setVisible(false);
-
-    }
-
-    public void updateCar(int position){
-
-        buttonX = (int) buttons[position].getX();
-        buttonY = (int) buttons[position].getY();
-        System.out.println(buttonX);
-        System.out.println(buttonY);
+        roadButtonX = buttons[position].getX();
+        roadButtonY = buttons[position].getY();
         repaint();
-
     }
+
+
+
+
 
 
     public void paint(Graphics g) {
         g.setColor(Color.BLACK);
-        g.fillRect(buttonX,buttonY,37,37);
+        g.fillRect(carButtonX,carButtonY,37,37);
+        g.setColor(Color.RED);
+        g.fillRect(roadButtonX,roadButtonY,75,75);
     }
+
 
 
     public void time(){
