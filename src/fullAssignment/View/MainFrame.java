@@ -7,15 +7,14 @@ import fullAssignment.Model.Roads;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MainFrame extends JPanel {
-    int carButtonX;
-    int carButtonY;
-    public int time;
-    int roadButtonX;
-    int roadButtonY;
+    private int carButtonX;
+    private int carButtonY;
+    //private int time;
+    private int roadButtonX;
+    private int roadButtonY;
     private Roads[] buttons;
     public boolean state;
 
@@ -24,7 +23,6 @@ public class MainFrame extends JPanel {
         setPreferredSize(new Dimension(300, 300));
         setLayout(new GridLayout(4, 4));
         buttons = new Roads[16];
-        Font font = new Font("Arial", Font.BOLD, 24);
         for (int i = 0; i < buttons.length; ++i) {
             buttons[i] = new Roads();
             buttons[i].setNumber(i);
@@ -52,8 +50,8 @@ public class MainFrame extends JPanel {
     }
 
     public void removeAllButtons(){
-        for (int i = 0; i < buttons.length; ++i) {
-            buttons[i].setVisible(false);
+        for (Roads button : buttons) {
+            button.setVisible(false);
         }
     }
 
@@ -69,12 +67,12 @@ public class MainFrame extends JPanel {
         g.fillRect(roadButtonX,roadButtonY,75,75);
     }
 
-    public void timerMethod(boolean test){
+    /*public void timerMethod(boolean test){
         while (test==true){
             time +=1;
             System.out.println(time);
         }
-    }
+    }*/
 
 
 
