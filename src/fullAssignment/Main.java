@@ -10,6 +10,9 @@ import javax.swing.*;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Scanner;
 
 public class Main {
 
@@ -69,20 +72,20 @@ public class Main {
             mainFrame.state = false;
         });
 
-        /*Load.addActionListener(event -> {
+        Load.addActionListener(event -> {
             try {
                 String text = Files.readString(Paths.get("road.csv"));
                 Scanner sc = new Scanner(text);
                 while (sc.hasNextLine()) {
                     System.out.println(Integer.parseInt(sc.nextLine()));
-                    mainFrame.updateRoad(Integer.parseInt(sc.nextLine()));
-                    cars.carRoads(Integer.parseInt(sc.nextLine()));
+/*                    mainFrame.updateRoad(Integer.parseInt(sc.nextLine()));
+                    cars.roadsChosen(Integer.parseInt(sc.nextLine()));*/
                 }
 
         } catch (IOException e) {
                 JOptionPane.showMessageDialog(frame, e.getLocalizedMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
-        });*/
+        });
 
         Save.addActionListener(event -> {
             try {

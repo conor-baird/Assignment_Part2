@@ -3,10 +3,6 @@ package fullAssignment.Model;
 import javax.swing.*;
 
 public class Roads extends JButton {
-
-
-
-
     private int number;
     public Roads() {
             super();
@@ -18,6 +14,5 @@ public class Roads extends JButton {
         public int getNumber() {
             return number;
         }
-
 
 }
