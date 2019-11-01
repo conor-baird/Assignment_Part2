@@ -1,9 +1,5 @@
 package fullAssignment.View;
-
-
-
 import fullAssignment.Model.Roads;
-
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,12 +8,10 @@ import java.awt.event.ActionListener;
 public class MainFrame extends JPanel {
     private int carButtonX;
     private int carButtonY;
-    //private int time;
     private int roadButtonX;
     private int roadButtonY;
     private Roads[] buttons;
     public boolean state;
-
 
     public MainFrame() {
         setPreferredSize(new Dimension(300, 300));
@@ -55,11 +49,6 @@ public class MainFrame extends JPanel {
         }
     }
 
-
-
-
-
-
     public void paint(Graphics g) {
         g.setColor(Color.BLACK);
         g.fillRect(carButtonX,carButtonY,37,37);
@@ -67,12 +56,7 @@ public class MainFrame extends JPanel {
         g.fillRect(roadButtonX,roadButtonY,75,75);
     }
 
-    /*public void timerMethod(boolean test){
-        while (test==true){
-            time +=1;
-            System.out.println(time);
-        }
-    }*/
+
 
 
 

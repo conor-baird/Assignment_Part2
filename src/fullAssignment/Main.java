@@ -33,7 +33,6 @@ public class Main {
         menuBar.add(start);
         menuBar.add(stop);
         menuBar.add(initialise);
-
         MainFrame mainFrame = new MainFrame();
         TrafficLight trafficLight = new TrafficLight();
         frame.add(mainFrame);
@@ -50,15 +49,11 @@ public class Main {
         });
 
         start.addActionListener(event ->{
-
             mainFrame.removeAllButtons();
             if (trafficLight.operatorLight().equals("Green")) {
-                //System.out.println("Shit going");
                 mainFrame.updateCar(cars.carMovement());
             }
-            else{
-                //System.out.println("Shit Stopped");
-            }
+
         });
 
         initialise.addActionListener(event ->{
@@ -66,7 +61,6 @@ public class Main {
             cars.setOriginalPos();
             mainFrame.updateCar((cars.setOriginalPos()));
         });
-
 
         stop.addActionListener(event ->{
             mainFrame.state = false;
@@ -78,8 +72,8 @@ public class Main {
                 Scanner sc = new Scanner(text);
                 while (sc.hasNextLine()) {
                     System.out.println(Integer.parseInt(sc.nextLine()));
-/*                    mainFrame.updateRoad(Integer.parseInt(sc.nextLine()));
-                    cars.roadsChosen(Integer.parseInt(sc.nextLine()));*/
+                    mainFrame.updateRoad(Integer.parseInt(sc.nextLine()));
+                    cars.roadsChosen(Integer.parseInt(sc.nextLine()));
                 }
 
         } catch (IOException e) {
