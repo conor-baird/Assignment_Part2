@@ -16,6 +16,7 @@ public class Cars {
         return roads;
     }
 
+
     // THis method takes the roads index position on the gridlayout from the main class and
     // assigns it to the road list in this class.
     public void roadsChosen(int road){
@@ -88,6 +89,7 @@ public class Cars {
     // and determines if its multiple road intersection or straight ahead and uses the multi intersection method to handle
     // the cars movement as well as ensureing the car can move straight forward without back tracking.
     public int carMovement(){
+        timer += 1;
          if ((carPosition+1)==carRoadsLookUp(carPosition+1)&&(carPosition+4)==carRoadsLookUp(carPosition+4)&&(carPosition-4)==carRoadsLookUp(carPosition-4)) {
             System.out.println("Three Road Intersection");
             multiRoadIntersection(4, -4, 1);

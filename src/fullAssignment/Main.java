@@ -14,9 +14,12 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Scanner;
 
+
 public class Main {
 
     public static void main(String[] args){
+        // This section of the main class initialises all the other classes and sets up the frame
+        // and the menu bar
         JFrame frame = new JFrame("Traffic Simulator");
         JMenuBar menuBar = new JMenuBar();
         frame.setJMenuBar(menuBar);
@@ -41,6 +44,7 @@ public class Main {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
+        // This section runs when the road buttons are pressed uses the main frame and cars class
         mainFrame.setButtonListener(event -> {
             Roads road = (Roads) event.getSource();
             int position = road.getNumber();
@@ -48,6 +52,7 @@ public class Main {
             cars.roadsChosen(position);
         });
 
+        // This section runs the start button and get the car moving.
         start.addActionListener(event ->{
             mainFrame.removeAllButtons();
             if (trafficLight.operatorLight().equals("Green")) {
@@ -56,16 +61,16 @@ public class Main {
 
         });
 
+        // This section runs the initialise button which sets the cars initial positon
         initialise.addActionListener(event ->{
             cars.displayRoads();
             cars.setOriginalPos();
             mainFrame.updateCar((cars.setOriginalPos()));
         });
 
-        stop.addActionListener(event ->{
-            mainFrame.state = false;
-        });
+        stop.addActionListener(event -> mainFrame.state = false);
 
+        //This method runs the load button and writes the road positions to a csv file
         Load.addActionListener(event -> {
             try {
                 String text = Files.readString(Paths.get("road.csv"));
@@ -81,6 +86,7 @@ public class Main {
             }
         });
 
+        // This section runs the save button and and passes it through the roadsOutput() method.
         Save.addActionListener(event -> {
             try {
                 PrintWriter writer = new PrintWriter(new FileWriter("road.csv"));
