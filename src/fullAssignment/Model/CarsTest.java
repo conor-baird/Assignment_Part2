@@ -26,8 +26,18 @@ class CarsTest {
         cars.roads.set(0,4);
         cars.setOriginalPos();
         assertEquals(4,cars.carPosition);
-
     }
+
+    @Test void checkRoadsLookUp(){
+        Cars cars = new Cars();
+        cars.roads.set(0,4);
+        cars.roads.set(1,5);
+        cars.roads.set(2,6);
+        cars.roads.set(3,7);
+        assertEquals(5,cars.carRoadsLookUp(5));
+    }
+
+
 
 
 

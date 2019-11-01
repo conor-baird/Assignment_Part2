@@ -24,7 +24,7 @@ public class Cars {
 
     // This method takes in a position value and compares it against all of the list elements in
     // in the roads class and if a match is found it returns this found value.
-    private int carRoadsLookUp(int lookUp) {
+    public int carRoadsLookUp(int lookUp) {
         int outPut = 25000;
         for (Integer road : roads) {
             if (road == lookUp) {
@@ -37,7 +37,7 @@ public class Cars {
 
     // This method does essentially the same thing as the carRoadsLookUp method but differs in the way
     // that it searches through the driven roads list to find a match and returns that match.
-    private int carDrivenRoadsLookUp(int lookUp) {
+    public int carDrivenRoadsLookUp(int lookUp) {
         int outPut = 25000;
         for (Integer integer : roadsDriven) {
             if (integer == lookUp) {
@@ -58,7 +58,7 @@ public class Cars {
     // This method takes in three different direction options and using a while loop and randomiser
     // it decides randomly which road the car will next go down based on the directions provided and will
     // also check if the car has already been down that road before it sets this new direction to the car positon
-    private void multiRoadIntersection(int direction1, int direction2, int direction3){
+    public void multiRoadIntersection(int direction1, int direction2, int direction3){
         while(state) {
             Random random = new Random();
             int ints = random.nextInt(3);
