@@ -1,21 +1,16 @@
 package fullAssignment.Model;
 
 import org.junit.jupiter.api.Test;
-
-import static java.util.concurrent.CompletableFuture.anyOf;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.Assert.*;
 
 class CarsTest {
 
     @Test void checkCarMovement(){
         Cars cars = new Cars();
-        cars.roads.set(0, 4);
-        cars.roads.set(1,5);
-        cars.roads.set(2,6);
-        cars.roads.set(3,7);
-        cars.roadsDriven.set(0,4);
-        cars.roadsDriven.set(1,5);
+        cars.roads.add(4);
+        cars.roads.add(5);
+        cars.roads.add(6);
+        cars.roads.add(7);
         cars.carPosition = 6;
         cars.carMovement();
         assertEquals(7,cars.carPosition);
@@ -23,18 +18,40 @@ class CarsTest {
 
     @Test void checkSetOriginalPos(){
         Cars cars = new Cars();
-        cars.roads.set(0,4);
+        cars.roads.add(4);
         cars.setOriginalPos();
         assertEquals(4,cars.carPosition);
     }
 
     @Test void checkRoadsLookUp(){
         Cars cars = new Cars();
-        cars.roads.set(0,4);
-        cars.roads.set(1,5);
-        cars.roads.set(2,6);
-        cars.roads.set(3,7);
+        cars.roads.add(4);
+        cars.roads.add(5);
+        cars.roads.add(6);
+        cars.roads.add(7);
         assertEquals(5,cars.carRoadsLookUp(5));
+    }
+
+    @Test void checkRoadsDriveLookUp(){
+        Cars cars = new Cars();
+        cars.roadsDriven.add(4);
+        cars.roadsDriven.add(5);
+        cars.roadsDriven.add(6);
+        cars.roadsDriven.add(7);
+        assertEquals(5,cars.carDrivenRoadsLookUp(5));
+    }
+
+    @Test void checkMultiRoadIntersection(){
+        Cars cars = new Cars();
+        cars.roads.add(4);
+        cars.roads.add(0);
+        cars.roads.add(5);
+        cars.roads.add(8);
+        cars.roadsDriven.add(0);
+        cars.roadsDriven.add(5);
+        cars.carPosition = 4;
+        cars.multiRoadIntersection(1,-4,4);
+        assertEquals(8,cars.carPosition);
     }
 
 
